@@ -5,11 +5,14 @@
 # Salesforce cache
 .sf/
 .sfdx/
+.husky/
+.vscode/
 .localdevserver/
 deploy-options.json
 
 # LWC VSCode autocomplete
 **/lwc/jsconfig.json
+
 
 # LWC Jest coverage reports
 coverage/
@@ -43,3 +46,8 @@ $RECYCLE.BIN/
 **/__pycache__/
 **/.venv/
 **/venv/
+
+# Additional configuration and ignore files
+.prettierignore
+.prettierrc
+jest.config.js
