@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#F4811F</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>PDF to Conversation</label>
+    <navType>Standard</navType>
+    <tabs>Setup_Instructions</tabs>
+    <tabs>standard-File</tabs>
+    <tabs>Knowledge_Base_Documents</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Nascen_Talk_UtilityBar</utilityBar>
+</CustomApplication>

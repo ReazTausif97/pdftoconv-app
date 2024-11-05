@@ -1,0 +1,55 @@
+<template>
+  <h2 style="font-weight: bold; font-size: 15px">Key Setup</h2>
+  <h2 style="font-size: 15px">
+    After installing the app, you must set up a secret key to securely integrate
+    your bot. This key is essential for connecting the bot to your Knowledge
+    Base.
+  </h2>
+  <ol style="font-size: 15px" class="slds-m-top_large slds-list_ordered">
+    <li>
+      <strong>Check your email:</strong>
+      <ul class="slds-list_dotted">
+        <li>
+          Upon installation, an email will be sent to the email address
+          associated with your Salesforce account.
+        </li>
+        <li>This email contains your <strong>Secret Key</strong>.</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Enter Your Secret Key:</strong>
+      <ul class="slds-list_dotted">
+        <li>
+          Copy the secret key from the email and paste it into the Secret Key
+          input field below.
+        </li>
+      </ul>
+      <div class="slds-p-bottom_large slds-p-left_large slds-p-right_medium">
+        <lightning-input
+          type="text"
+          style="font-weight: bold; margin-bottom: 10px"
+          label="Secret Key"
+          value={secretKey}
+          onchange={handleInputChange}
+        ></lightning-input>
+        <div
+          if:true={errorMessage}
+          class="slds-text-color_error slds-m-bottom_small"
+        >
+          {errorMessage}
+        </div>
+        <div
+          if:true={successMessage}
+          class="slds-text-color_success slds-m-bottom_small"
+        >
+          {successMessage}
+        </div>
+        <lightning-button
+          type="button"
+          label="Set Key"
+          onclick={handleSetKey}
+        ></lightning-button>
+      </div>
+    </li>
+  </ol>
+</template>

@@ -1,0 +1,22 @@
+{
+  "packageDirectories": [
+    {
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "path": "force-app",
+      "default": true,
+      "package": "Test 2GP",
+      "versionDescription": ""
+    }
+  ],
+  "name": "2GP Package",
+  "namespace": "PDFtoConv",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "62.0",
+  "packageAlias": {},
+  "packageAliases": {
+    "Test 2GP": "0HodN00000002LBSAY",
+    "Test 2GP@0.1.0-1": "04tdN0000005SOfQAM",
+    "Test 2GP@0.1.0-2": "04tdN0000005SzlQAE"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "orgName": "nascenia_utshab company",
+  "edition": "Developer",
+  "features": ["EnableSetPasswordInApi",
+               "Chatbot",
+                "ServiceCloud",
+              "LiveAgent"],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+     "serviceCloudSettings": {
+            "enableServiceCloud": true
+        },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    }
+  }
+}

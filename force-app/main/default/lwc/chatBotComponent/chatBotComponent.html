@@ -1,0 +1,32 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-30-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+  <lightning-card title="Test ChatBot's Knowledge Base">
+    <div class="slds-m-around_medium">
+      <lightning-input
+        label="Enter your query"
+        value={userQuery}
+        onchange={handleQueryChange}
+      ></lightning-input>
+      <div class="slds-m-top_medium">
+        <lightning-button
+          class=""
+          label="Send"
+          onclick={handleSend}
+        ></lightning-button>
+      </div>
+    </div>
+    <template if:true={botResponse}>
+      <div class="slds-m-around_medium">
+        <lightning-formatted-text
+          value={botResponse}
+        ></lightning-formatted-text>
+      </div>
+    </template>
+  </lightning-card>
+</template>

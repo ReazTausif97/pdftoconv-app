@@ -1,0 +1,364 @@
+<template>
+  <h2 style="font-weight: bold; font-size: 15px">Get Started</h2>
+  <h2 style="font-size: 15px">
+    This guide will walk you through every step to configure and synchronize
+    your Knowledge Base with the Einstein Bot, including setting up your secret
+    key for secure integration.
+  </h2>
+  <ol style="font-size: 15px" class="slds-m-top_x-large slds-setup-assistant">
+    <li class="slds-setup-assistant__item">
+      <article class="slds-setup-assistant__step">
+        <div class="slds-setup-assistant__step-summary">
+          <div class="slds-media">
+            <div
+              class="slds-setup-assistant__step-summary-content slds-media__body"
+            >
+              <h3
+                class="slds-setup-assistant__step-summary-title slds-text-heading_small"
+              >
+                Enable Required Features
+              </h3>
+              <p>Please enable the following settings:</p>
+              <div style="margin-left: 20px">
+                <ul style="list-style: decimal">
+                  <li>
+                    Go to
+                    <strong
+                      ><a href="/lightning/setup/NetworkSettings/home"> Digital Experience Settings </a></strong> and enable Digital Experience.
+                  </li>
+                  <li>
+                    Enable messaging settings from this page
+                    <strong><a href="/lightning/setup/LiveMessageSetup/home"> Messaging Settings </a></strong>. Click on the toggle button to enable messaging settings.
+                  </li>
+                  <li>
+                    From this page <strong><a href="/lightning/setup/EinsteinBots/home"> Einstein Bots </a></strong> enable the einstein bot if it's not enabled.
+                  
+                  </li>
+                  <li>
+                    Enable Omni Channel from this page <strong><a href="/lightning/setup/OmniChannelSettings/home"> Omni Channel </a></strong>. You will find a checkbox to enable the Omni-Channel.
+                  
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse"></div>
+          </div>
+        </div>
+      </article>
+    </li>
+      <li class="slds-setup-assistant__item">
+        <article class="slds-setup-assistant__step">
+          <div class="slds-setup-assistant__step-summary">
+            <div class="slds-media">
+              <div class="slds-setup-assistant__step-summary-content slds-media__body">
+                <h3 class="slds-setup-assistant__step-summary-title slds-text-heading_small">
+                  Create and Activate the Bot
+                </h3>
+         
+                <div style="margin-left: 20px">
+                  <ul style="list-style: decimal">
+                    <li>
+                      Go to
+                      <strong><a href="/lightning/setup/EinsteinBots/home"> Einstein Bot Setup Page </a></strong> and
+                      click on <strong>New</strong> to create a bot.
+                    </li>
+                    <li>
+                      Select bot type as <strong>Enhanced Bot</strong> then click on next. After that select PTC Bot Template. Then set your bot name as "<strong>PTC Bot</strong>".
+                    </li>
+                    <li>
+                     Complete the installation by clicking next and lastly upon finishing the installation it will take you to the bot page. From there activate the bot from the top right corner.
+      
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slds-media__figure slds-media__figure_reverse"></div>
+            </div>
+          </div>
+        </article>
+      </li>
+
+      <li class="slds-setup-assistant__item">
+        <article class="slds-setup-assistant__step">
+          <div class="slds-setup-assistant__step-summary">
+            <div class="slds-media">
+              <div class="slds-setup-assistant__step-summary-content slds-media__body">
+                <h3 class="slds-setup-assistant__step-summary-title slds-text-heading_small">
+                    Assign Class Permission to the Bot
+                </h3>
+                <p>Go to this page
+                <strong><a href={permissionSetUrl}> Permission Set </a></strong> and look for
+                <strong> PDFtoConv__ChatBotController</strong> from Available Apex Class list. Select that and add it to the Enabled Apex
+                Class list and save.</p>
+              
+              </div>
+              <div class="slds-media__figure slds-media__figure_reverse"></div>
+            </div>
+          </div>
+        </article>
+      </li>
+
+
+
+    <li class="slds-setup-assistant__item">
+      <article class="slds-setup-assistant__step">
+        <div class="slds-setup-assistant__step-summary">
+          <div class="slds-media">
+            <div
+              class="slds-setup-assistant__step-summary-content slds-media__body"
+            >
+              <h3
+                class="slds-setup-assistant__step-summary-title slds-text-heading_small"
+              >
+                Set up Messaging Channel and Queue
+              </h3>
+              <p>
+                To enable communication through specific messaging channels you
+                must create a messaging channel and a queue. Click the setup
+                button to setup the messaging channel and queue.
+              </p>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse">
+              <button
+                class="slds-button slds-button_outline-brand"
+                onclick={handleSetupClick}
+              >
+                Setup
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Modal Section -->
+      <template if:true={showModal}>
+        <section
+          role="dialog"
+          tabindex="-1"
+          aria-modal="true"
+          aria-labelledby="modal-heading-01"
+          class="slds-modal slds-fade-in-open"
+        >
+          <div class="slds-modal__container">
+            <div class="slds-modal__header">
+              <h1
+                id="modal-heading-01"
+                class="slds-modal__title slds-hyphenate"
+                tabindex="-1"
+              >
+                Setting Up Messaging Channel and Queue
+              </h1>
+            </div>
+
+            <div
+              class="slds-modal__content slds slds-p-around_large slds-text-align_center"
+              id="modal-content-id-1"
+            >
+              <div class="slds-m-top_large">
+                <div
+                  class="slds-spinner slds-spinner_brand slds-spinner_x-small"
+                >
+                  <span class="slds-assistive-text">Loading</span>
+                  <div class="slds-spinner__dot-a"></div>
+                  <div class="slds-spinner__dot-b"></div>
+                </div>
+              </div>
+              <p>
+                Please wait till the essential setting configuration is complete
+              </p>
+            </div>
+          </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+      </template>
+    </li>
+
+        <li class="slds-setup-assistant__item">
+          <article class="slds-setup-assistant__step">
+            <div class="slds-setup-assistant__step-summary">
+              <div class="slds-media">
+                <div class="slds-setup-assistant__step-summary-content slds-media__body">
+                  <h3 class="slds-setup-assistant__step-summary-title slds-text-heading_small">
+                    Activate Flow and Messaging Channel
+                  </h3>
+                  <p>
+                   Go to <strong><a href="/lightning/setup/Flows/home"> Flows </a></strong>, and look for <strong>PTC Bot Flow</strong>, click on it and then activate it. Activate the messaging channel from here <strong><a href="/lightning/setup/LiveMessageSetup/home"> Messaging Channel </a></strong>, and look for <strong>PDF to Conversation Channel</strong> and activate it.
+                  </p>
+                </div>
+                <div class="slds-media__figure slds-media__figure_reverse"></div>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <li class="slds-setup-assistant__item">
+          <article class="slds-setup-assistant__step">
+            <div class="slds-setup-assistant__step-summary">
+              <div class="slds-media">
+                <div class="slds-setup-assistant__step-summary-content slds-media__body">
+                  <h3 class="slds-setup-assistant__step-summary-title slds-text-heading_small">
+                    Configure Embedded Service Deployment
+                  </h3>
+        
+                  <div style="margin-left: 20px">
+                    <ul style="list-style: decimal">
+                      <li>
+                        Go to
+                        <strong><a href="/lightning/setup/EmbeddedServiceDeployments/home"> Embedded Service Deployment</a></strong> and
+                        click on new deployment.
+                      </li>
+                      <li>
+                       Select <strong>Messaging for In-App and Web</strong>, then Next.
+                      </li>
+                      <li>
+                        Choose Web as deployment type and proceed to next step.
+        
+                      </li>
+                      <li>
+                        Name the deployment <strong>PTC Bot Deployment</strong>, leave the API name blank (it will auto-generate).
+                      </li>
+                      <li>
+                      Set the domain name to <strong>force.com</strong>
+                      </li>
+                      <li>
+                        Under Messaging Channel, enter <strong> PDF to Conversation Channel</strong> and select it from the suggestions.
+                      </li>
+                      <li>
+                        Click Save. After the deployment is created, publish it.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slds-media__figure slds-media__figure_reverse"></div>
+              </div>
+            </div>
+          </article>
+        </li>
+
+    <li class="slds-setup-assistant__item">
+      <article class="slds-setup-assistant__step">
+        <div class="slds-setup-assistant__step-summary">
+          <div class="slds-media">
+            <div
+              class="slds-setup-assistant__step-summary-content slds-media__body"
+            >
+              <h3
+                class="slds-setup-assistant__step-summary-title slds-text-heading_small"
+              >
+                Uploading a Knowledge Base PDF
+              </h3>
+              <p>To upload a PDF to the Knowledge Base, follow these steps:</p>
+              <div style="margin-left: 20px">
+                <ul style="list-style: decimal">
+                  <li>
+                    Navigate to the
+                    <strong> Knowledge Base Documents</strong> tab.
+                  </li>
+                  <li>
+                    Click the <strong>New</strong> button to create a new
+                    document record and upload your PDF file. Ensure that the file size is less than 4 MB, and contains as few images as possible, as this could impact the bot's
+                    processing performance.
+                  </li>
+                  <li>
+                    After uploading the file, you will notice a button labeled
+                    <strong> Update Conversation Model</strong> appearing on the
+                    right side of the page.
+                  </li>
+                  <li>
+                    Click this button to update the conversation model, ensuring
+                    that the newly added file is included in the bot’s knowledge
+                    base. You would need to do this after deleting or adding a
+                    new file.
+                  </li>
+                 
+                </ul>
+              </div>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse"></div>
+          </div>
+        </div>
+      </article>
+    </li>
+    <li class="slds-setup-assistant__item">
+      <article class="slds-setup-assistant__step">
+        <div class="slds-setup-assistant__step-summary">
+          <div class="slds-media">
+            <div
+              class="slds-setup-assistant__step-summary-content slds-media__body"
+            >
+              <h3
+                class="slds-setup-assistant__step-summary-title slds-text-heading_small"
+              >
+                Using the Bot on an External Website
+              </h3>
+              <p>
+                You can deploy the bot on an Experience Cloud site or any
+                external website. To use the bot on an external site:
+              </p>
+              <div style="margin-left: 20px">
+                <ul style="list-style: decimal">
+                  <li>
+                   To use the bot in an external website you would need to add the Url of the website in the <strong>CORS</strong> and also in the <strong>Sites</strong> Trusted Domain. Go to <strong><a href="/lightning/setup/CustomDomain/home">Sites</a></strong> and look for the site named <strong>ESW_PTC_Bot_Deployment</strong>, click on the name and go to the section named <strong>Trusted Domains for Inline Frames </strong>. Add your site url by clicking Add Domain.
+                  </li>
+                  <li>Add your site url from this page <strong><a href="/lightning/setup/CorsWhitelistEntries/home">CORS</a></strong> also.</li>
+                  <li>
+                    Go to the
+                    <strong><a href="/lightning/setup/EmbeddedServiceDeployments/home"> Bot Deployment</a></strong> page
+                    within Salesforce. Look for the Deployment that was created earlier with the name <strong>PTC Bot Deployment</strong>. 
+                  </li>
+                  <li>From the deployment page you can see the Install Code Snippet. From there copy the provided Chat Code Snippet.</li>
+                  <li>
+                    Paste this snippet into the HTML file of the website where
+                    you want use the bot.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse"></div>
+          </div>
+        </div>
+      </article>
+    </li>
+    <li class="slds-setup-assistant__item">
+      <article class="slds-setup-assistant__step">
+        <div class="slds-setup-assistant__step-summary">
+          <div class="slds-media">
+            <div
+              class="slds-setup-assistant__step-summary-content slds-media__body"
+            >
+              <h3
+                class="slds-setup-assistant__step-summary-title slds-text-heading_small"
+              >
+                Using the Bot on an Experience Cloud Site
+              </h3>
+              <p>To deploy the bot on your Experience Cloud site:</p>
+              <div style="margin-left: 20px">
+                <ul style="list-style: decimal">
+                    <li>
+                      Go to <strong><a href="/lightning/setup/CustomDomain/home">Sites</a></strong> and look for the site named
+                      <strong> ESD_PTC_Bot_Deployment</strong>, click on the name and go to the section named <strong>Trusted Domains for
+                        Inline Frames </strong>. Add this url <strong>https://*.my.site.com</strong> by clicking Add Domain.
+                    </li>
+                  <li>
+                    Navigate to the Experience Cloud site where you want to
+                    implement the bot.
+                  </li>
+                  <li>
+                    Add the <strong> Embedded Messaging</strong> component to
+                    your site’s page.
+                  </li>
+                  <li>
+                    In the component’s configuration settings, from Embedded Web Deployment select the option
+                    labeled <strong> PTC_Bot_Deployment</strong> to connect the
+                    bot to your site.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse"></div>
+          </div>
+        </div>
+      </article>
+    </li>
+  </ol>
+</template>

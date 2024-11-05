@@ -1,0 +1,63 @@
+<aura:component
+  implements="lightning:actionOverride,force:hasRecordId,flexipage:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:appHostable,flexipage:availableForRecordHome"
+  access="global"
+  controller="PDF_UploadController"
+>
+  <aura:attribute name="recordId" type="String" />
+  <aura:attribute name="fileName" type="String" />
+  <aura:attribute name="fileContent" type="String" />
+  <aura:attribute name="isOpen" type="Boolean" default="true" />
+  <aura:attribute name="lwcCreated" type="Boolean" default="false" />
+
+  <aura:if isTrue="{!v.isOpen}">
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+      <div class="slds-modal__container">
+        <header class="slds-modal__header">
+          <button
+            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+            title="Close"
+            onclick="{!c.closeModal}"
+          >
+            <lightning:icon
+              iconName="utility:close"
+              alternativeText="close"
+              style="--sds-c-icon-color-foreground-default: white"
+            />
+            <span class="slds-assistive-text">Close</span>
+          </button>
+          <h2 class="slds-text-heading_medium">New Knowledge Base Document</h2>
+        </header>
+        <div class="slds-modal__content slds-p-around_medium">
+          <lightning:input
+            name="name"
+            label="Name"
+            value="{!v.fileName}"
+            required="true"
+          />
+          <lightning:fileUpload
+            label="Upload PDF"
+            accept=".pdf"
+            recordId="{!v.recordId}"
+            onuploadfinished="{!c.handleUploadFinished}"
+          />
+        </div>
+        <footer class="slds-modal__footer">
+          <lightning:button
+            variant="neutral"
+            label="Cancel"
+            onclick="{!c.closeModal}"
+          />
+          <lightning:button
+            variant="brand"
+            label="Save"
+            onclick="{!c.handleSave}"
+          />
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </aura:if>
+  <aura:if isTrue="{!v.lwcCreated}">
+    <c:mergePdfs />
+  </aura:if>
+</aura:component>

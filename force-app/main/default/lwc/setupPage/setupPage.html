@@ -1,0 +1,52 @@
+<template>
+  <div
+    style="min-height: 300px"
+    class="slds-grid slds-wrap slds-grid_align-start slds-grid_vertical-stretch slds-theme_default"
+  >
+    <div
+      class="slds-col slds-medium-size_1-of-6"
+      style="font-size: 15px; border-right: 1px solid #f3f2f2"
+    >
+      <lightning-vertical-navigation
+        selected-item={selectedItem}
+        onselect={handleSelect}
+      >
+        <lightning-vertical-navigation-section label="">
+          <lightning-vertical-navigation
+            selected-item={selectedItem}
+            onselect={handleSelect}
+          >
+            <lightning-vertical-navigation-item-icon
+              label="Get Started"
+              icon-name="utility:setup_assistant_guide"
+              name="Get Started"
+            ></lightning-vertical-navigation-item-icon>
+            <lightning-vertical-navigation-item-icon
+              label="Key Setup"
+              icon-name="utility:key"
+              name="Key Setup"
+            ></lightning-vertical-navigation-item-icon>
+            <lightning-vertical-navigation-item-icon
+              label="Tutorials"
+              icon-name="utility:video"
+              name="settings"
+            ></lightning-vertical-navigation-item-icon>
+          </lightning-vertical-navigation>
+        </lightning-vertical-navigation-section>
+      </lightning-vertical-navigation>
+    </div>
+    <div
+      class="slds-col slds-medium-size_5-of-6 slds-p-left_large slds-p-top_large"
+    >
+      <template if:true={isGetStarted}>
+        <c-get-started onaddkey={handleAddKey}></c-get-started>
+      </template>
+      <template if:true={isKeySetup}>
+        <c-key-setup></c-key-setup>
+      </template>
+      <template if:true={isSettings}>
+        <!-- <c-settings-page></c-settings-page> -->
+      </template>
+    </div>
+  </div>
+</template>

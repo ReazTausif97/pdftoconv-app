@@ -1,0 +1,33 @@
+<template>
+  <div class="slds-card slds-p-around_medium">
+    <template if:true={isSynced}>
+      <div class="">
+        <div class="slds-text-heading_small">
+          The bot is up to date with the most current knowledge documents
+          context.
+        </div>
+      </div>
+    </template>
+    <template if:false={isSynced}>
+      <div class="">
+        <div class="slds-text-heading_small">
+          You have made modifications to the knowledge documents. Please
+          synchronize to provide the bot with the most current context.
+        </div>
+      </div>
+      <div class="slds-card__body">
+        <lightning-button
+          class="slds-m-top_small slds-text-title_bold"
+          variant="brand"
+          label="Update Conversation Model"
+          onclick={handleSync}
+        ></lightning-button>
+
+        <template if:true={isLoaded}>
+          <lightning-spinner alternative-text=""></lightning-spinner>
+        </template>
+        <!-- <template if:false={isLoaded}> </template> -->
+      </div>
+    </template>
+  </div>
+</template>
