@@ -1,5 +1,5 @@
 @IsTest
-public class settingConfigControllerTest {
+public class SettingConfigControllerTest {
 
     @TestSetup
     static void setupTestData() {

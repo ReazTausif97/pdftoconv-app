@@ -1,4 +1,4 @@
-public class settingConfigController {
+public class SettingConfigController {
     public static String serviceChannelId=[Select Id From ServiceChannel Where MasterLabel='Messaging'].Id;
     public static String queueId;
     public static String botId=[Select Id from BotDefinition where MasterLabel='PTC Bot'].Id;
